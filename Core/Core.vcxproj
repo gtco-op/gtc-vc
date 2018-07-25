@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="GTAVC Release|Win32">
+      <Configuration>GTAVC Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="GTAVC zDebug|Win32">
+      <Configuration>GTAVC zDebug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B212DDA4-2A8E-45B2-914D-7BEEB31D06B1}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Core</RootNamespace>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GTAVC Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GTAVC zDebug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='GTAVC Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='GTAVC zDebug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GTAVC Release|Win32'">
+    <OutDir>$(GTA_VC_DIR)\</OutDir>
+    <IntDir>$(ProjectDir).obj\GTAVC\Release\</IntDir>
+    <TargetName>Core</TargetName>
+    <TargetExt>.asi</TargetExt>
+    <IncludePath>$(IncludePath);$(ProjectDir)\game;$(ProjectDir);</IncludePath>
+    <LibraryPath>$(LibraryPath);</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GTAVC zDebug|Win32'">
+    <OutDir>$(GTA_VC_DIR)\</OutDir>
+    <IntDir>$(ProjectDir).obj\GTAVC\Debug\</IntDir>
+    <TargetName>Core_d</TargetName>
+    <TargetExt>.asi</TargetExt>
+    <IncludePath>$(IncludePath);$(DIRECTX9_SDK_DIR)\Include\</IncludePath>
+    <LibraryPath>$(LibraryPath);$(DIRECTX9_SDK_DIR)\Lib\x86\</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GTAVC Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(PLUGIN_SDK_DIR)\plugin_vc\;$(PLUGIN_SDK_DIR)\plugin_vc\game_vc\;$(PLUGIN_SDK_DIR)\shared\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_NDEBUG;_USING_V110_SDK71_;_CRT_SECURE_NO_WARNINGS;_CRT_NON_CONFORMING_SWPRINTFS;GTAVC;GTAGAME_NAME="Vice City";GTAGAME_ABBR="VC";GTAGAME_ABBRLOW="vc";GTAGAME_PROTAGONISTNAME="Tommy";GTAGAME_CITYNAME="Vice City";_DX9_SDK_INSTALLED;PLUGIN_SGV_10EN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>$(PLUGIN_SDK_DIR)\output\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>detours.lib;winmm.lib;ws2_32.lib;plugin_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GTAVC zDebug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(PLUGIN_SDK_DIR)\plugin_vc\;$(PLUGIN_SDK_DIR)\plugin_vc\game_vc\;$(PLUGIN_SDK_DIR)\shared\;$(RWD3D9_DIR)\source\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_USING_V110_SDK71_;_CRT_SECURE_NO_WARNINGS;_CRT_NON_CONFORMING_SWPRINTFS;GTAVC;GTAGAME_NAME="Vice City";GTAGAME_ABBR="VC";GTAGAME_ABBRLOW="vc";GTAGAME_PROTAGONISTNAME="Tommy";GTAGAME_CITYNAME="Vice City";_DX9_SDK_INSTALLED;PLUGIN_SGV_10EN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>$(PLUGIN_SDK_DIR)\output\lib\;$(RWD3D9_DIR)\libs\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>plugin_vc_d.lib;d3d9.lib;d3dx9.lib;rwd3d9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="CCompanionNetworking.cpp" />
+    <ClCompile Include="CHostNetworking.cpp" />
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="game\CGamePatches.cpp" />
+    <ClCompile Include="game\CMissionManager.cpp" />
+    <ClCompile Include="game\CModelManager.cpp" />
+    <ClCompile Include="game\CPedManager.cpp" />
+    <ClCompile Include="game\CPickupManager.cpp" />
+    <ClCompile Include="game\CPlayerPedManager.cpp" />
+    <ClCompile Include="game\CRadarManager.cpp" />
+    <ClCompile Include="game\CVehicleManager.cpp" />
+    <ClCompile Include="game\CWeaponManager.cpp" />
+    <ClCompile Include="vendor\inih\ini.c" />
+    <ClCompile Include="vendor\inih\INIReader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CCompanionNetworking.h" />
+    <ClInclude Include="CHostNetworking.h" />
+    <ClInclude Include="game\CGamePatches.h" />
+    <ClInclude Include="game\CMissionManager.h" />
+    <ClInclude Include="game\CModelManager.h" />
+    <ClInclude Include="game\CPedManager.h" />
+    <ClInclude Include="game\CPickupManager.h" />
+    <ClInclude Include="game\CPlayerPedManager.h" />
+    <ClInclude Include="game\CRadarManager.h" />
+    <ClInclude Include="game\CVehicleManager.h" />
+    <ClInclude Include="game\CWeaponManager.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="vendor\detours\detours.h" />
+    <ClInclude Include="vendor\hooklibrary.h" />
+    <ClInclude Include="vendor\inih\ini.h" />
+    <ClInclude Include="vendor\inih\INIReader.h" />
+    <ClInclude Include="vendor\librg\enet.h" />
+    <ClInclude Include="vendor\librg\librg.h" />
+    <ClInclude Include="vendor\librg\librg_components.h" />
+    <ClInclude Include="vendor\librg\librg_limiter.h" />
+    <ClInclude Include="vendor\librg\zpl.h" />
+    <ClInclude Include="vendor\librg\zpl_math.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
