@@ -60,7 +60,7 @@ void CompanionThread() {
     //Connecting
     librg_address_t address = { m_port, (char*)m_ip };
     librg_network_start(&cli_ctx, address);
-    printf("[CompanionNetworking] Connected to %s:%s", m_port, m_ip);
+    printf("[CompanionNetworking] Connected to %s:%d", m_ip, m_port);
     CHud::SetHelpMessage("Connecting :)", 0,0,0);
 
     bool client_running = true;
@@ -74,7 +74,7 @@ void CompanionThread() {
     librg_free(&cli_ctx);
 
 }
-CCompanionNetworking::CCompanionNetworking(const char* IP, int port)
+void CCompanionNetworking::JoinGame(const char* IP, int port)
 {
     gGamePatches->DestructingMenu();
     printf("[CCompanionNetworking] Initalizing Companion Thread");

@@ -29,7 +29,7 @@ static int m_port;
 
 #pragma region Events
     void  on_connection_request(librg_event_t *event) {
-        printf("[CHostNetowrking] Companion is Requesting to connect IP:  %d\n", event->peer->address);
+        printf("[CHostNetowrking] Companion is Requesting to connect IP:  %s\n", (char*)event->peer->address.host);
 
     }
     void on_connection_accept(librg_event_t *event) {
@@ -45,7 +45,7 @@ static int m_port;
 
     }
     void on_disconnection(librg_event_t *event) {
-        companion == nullptr;
+        companion = nullptr;
         gPedManager->Destroy(comp_ped);
     }
 #pragma endregion
@@ -78,7 +78,7 @@ static int m_port;
         while (server_running) {
             if (companion != nullptr) {
                 PlayerSyncData *plr = (PlayerSyncData*)companion->user_data;
-                printf("Reciving Companion Position: X: %.f Y: &.f Z: %.f", plr->Position.x, plr->Position.y, plr->Position.z);
+                printf("Reciving Companion Position: X: %.f Y: %.f Z: %.f", plr->Position.x, plr->Position.y, plr->Position.z);
 
             }
 

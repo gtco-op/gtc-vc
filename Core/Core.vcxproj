@@ -65,7 +65,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(PLUGIN_SDK_DIR)\plugin_vc\;$(PLUGIN_SDK_DIR)\plugin_vc\game_vc\;$(PLUGIN_SDK_DIR)\shared\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(RWD3D9_DIR)\source\;$(PLUGIN_SDK_DIR)\plugin_vc\;$(PLUGIN_SDK_DIR)\plugin_vc\game_vc\;$(PLUGIN_SDK_DIR)\shared\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_NDEBUG;_USING_V110_SDK71_;_CRT_SECURE_NO_WARNINGS;_CRT_NON_CONFORMING_SWPRINTFS;GTAVC;GTAGAME_NAME="Vice City";GTAGAME_ABBR="VC";GTAGAME_ABBRLOW="vc";GTAGAME_PROTAGONISTNAME="Tommy";GTAGAME_CITYNAME="Vice City";_DX9_SDK_INSTALLED;PLUGIN_SGV_10EN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
@@ -75,8 +75,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>No</GenerateDebugInformation>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <AdditionalLibraryDirectories>$(PLUGIN_SDK_DIR)\output\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>detours.lib;winmm.lib;ws2_32.lib;plugin_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(RWD3D9_DIR)\libs\;$(PLUGIN_SDK_DIR)\output\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>rwd3d9.lib;detours.lib;winmm.lib;ws2_32.lib;plugin_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
@@ -113,6 +113,11 @@
     <ClCompile Include="game\CRadarManager.cpp" />
     <ClCompile Include="game\CVehicleManager.cpp" />
     <ClCompile Include="game\CWeaponManager.cpp" />
+    <ClCompile Include="ImGuiImplementation.cpp" />
+    <ClCompile Include="vendor\imgui\imgui.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_impl_dx9.cpp" />
+    <ClCompile Include="vendor\imgui\imgui_impl_win32.cpp" />
     <ClCompile Include="vendor\inih\ini.c" />
     <ClCompile Include="vendor\inih\INIReader.cpp" />
   </ItemGroup>
@@ -128,9 +133,18 @@
     <ClInclude Include="game\CRadarManager.h" />
     <ClInclude Include="game\CVehicleManager.h" />
     <ClInclude Include="game\CWeaponManager.h" />
+    <ClInclude Include="ImGuiImplementation.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="vendor\detours\detours.h" />
     <ClInclude Include="vendor\hooklibrary.h" />
+    <ClInclude Include="vendor\imgui\imconfig.h" />
+    <ClInclude Include="vendor\imgui\imgui.h" />
+    <ClInclude Include="vendor\imgui\imgui_impl_dx9.h" />
+    <ClInclude Include="vendor\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="vendor\imgui\imgui_internal.h" />
+    <ClInclude Include="vendor\imgui\stb_rect_pack.h" />
+    <ClInclude Include="vendor\imgui\stb_textedit.h" />
+    <ClInclude Include="vendor\imgui\stb_truetype.h" />
     <ClInclude Include="vendor\inih\ini.h" />
     <ClInclude Include="vendor\inih\INIReader.h" />
     <ClInclude Include="vendor\librg\enet.h" />

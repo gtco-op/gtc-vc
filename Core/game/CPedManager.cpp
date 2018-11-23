@@ -23,10 +23,11 @@ CPed *CPedManager::Create(int modelid, const CVector& position, bool wander)
 	{
 
 		CPed* ped = new CCivilianPed(CPopulation::IsFemale(modelid) ? PEDTYPE_CIVFEMALE : PEDTYPE_CIVMALE, modelid);
-		ped->m_nPedFlags.bRespondsToThreats = true;
+		ped->m_nPedFlags.bRespondsToThreats = false;
 		ped->m_nPedFlags.b50 = false;
 		ped->m_nPedStatus = 1;
 		ped->m_nPedFlags.bScriptPedIsPlayerAlly = false;
+        ped->m_nPedMoney = 0;
 		ped->ClearAll();
 		CWorld::Add(ped);
 

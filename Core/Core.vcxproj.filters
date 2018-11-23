@@ -1,43 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="game\CGamePatches.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="game\CMissionManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="game\CModelManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="game\CPedManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="game\CPickupManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="game\CPlayerPedManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="game\CRadarManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="game\CVehicleManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
-    <ClCompile Include="game\CWeaponManager.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="Core.cpp" />
-    <ClCompile Include="vendor\imgui\imgui_impl_dx9.cpp">
-      <Filter>Vendors\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="vendor\imgui\imgui_draw.cpp">
-      <Filter>Vendors\imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="vendor\imgui\imgui.cpp">
-      <Filter>Vendors\imgui</Filter>
-    </ClCompile>
     <ClCompile Include="CCompanionNetworking.cpp">
       <Filter>Networking</Filter>
     </ClCompile>
@@ -50,35 +14,50 @@
     <ClCompile Include="vendor\inih\ini.c">
       <Filter>Vendors\inih</Filter>
     </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_impl_dx9.cpp">
+      <Filter>Vendors\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_draw.cpp">
+      <Filter>Vendors\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui.cpp">
+      <Filter>Vendors\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="vendor\imgui\imgui_impl_win32.cpp">
+      <Filter>Vendors\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGuiImplementation.cpp">
+      <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="game\CPedManager.cpp">
+      <Filter>Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="game\CPlayerPedManager.cpp">
+      <Filter>Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="game\CVehicleManager.cpp">
+      <Filter>Game\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="game\CGamePatches.cpp">
+      <Filter>Game\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="game\CModelManager.cpp">
+      <Filter>Game\Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="game\CWeaponManager.cpp">
+      <Filter>Game\World</Filter>
+    </ClCompile>
+    <ClCompile Include="game\CRadarManager.cpp">
+      <Filter>Game\World</Filter>
+    </ClCompile>
+    <ClCompile Include="game\CPickupManager.cpp">
+      <Filter>Game\World</Filter>
+    </ClCompile>
+    <ClCompile Include="game\CMissionManager.cpp">
+      <Filter>Game\Logic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game\CMissionManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="game\CModelManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="game\CPedManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="game\CPickupManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="game\CPlayerPedManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="game\CRadarManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="game\CVehicleManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="game\CWeaponManager.h">
-      <Filter>Game</Filter>
-    </ClInclude>
-    <ClInclude Include="game\CGamePatches.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="vendor\librg\enet.h">
       <Filter>Vendors\librg</Filter>
     </ClInclude>
@@ -97,33 +76,11 @@
     <ClInclude Include="vendor\librg\zpl_math.h">
       <Filter>Vendors\librg</Filter>
     </ClInclude>
-    <ClInclude Include="main.h" />
     <ClInclude Include="vendor\hooklibrary.h">
       <Filter>Vendors\librg</Filter>
     </ClInclude>
     <ClInclude Include="vendor\detours\detours.h">
       <Filter>Vendors</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\imgui\imconfig.h">
-      <Filter>Vendors\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\imgui\imgui.h">
-      <Filter>Vendors\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\imgui\imgui_impl_dx9.h">
-      <Filter>Vendors\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\imgui\imgui_internal.h">
-      <Filter>Vendors\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\imgui\stb_rect_pack.h">
-      <Filter>Vendors\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\imgui\stb_textedit.h">
-      <Filter>Vendors\imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\imgui\stb_truetype.h">
-      <Filter>Vendors\imgui</Filter>
     </ClInclude>
     <ClInclude Include="CCompanionNetworking.h">
       <Filter>Networking</Filter>
@@ -136,6 +93,61 @@
     </ClInclude>
     <ClInclude Include="vendor\inih\INIReader.h">
       <Filter>Vendors\inih</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h" />
+    <ClInclude Include="vendor\imgui\stb_truetype.h">
+      <Filter>Vendors\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\stb_textedit.h">
+      <Filter>Vendors\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\stb_rect_pack.h">
+      <Filter>Vendors\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui_internal.h">
+      <Filter>Vendors\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui_impl_dx9.h">
+      <Filter>Vendors\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui.h">
+      <Filter>Vendors\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imconfig.h">
+      <Filter>Vendors\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\imgui\imgui_impl_win32.h">
+      <Filter>Vendors\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGuiImplementation.h">
+      <Filter>Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="game\CPedManager.h">
+      <Filter>Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="game\CPlayerPedManager.h">
+      <Filter>Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="game\CVehicleManager.h">
+      <Filter>Game\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="game\CGamePatches.h">
+      <Filter>Game\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="game\CModelManager.h">
+      <Filter>Game\Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="game\CWeaponManager.h">
+      <Filter>Game\World</Filter>
+    </ClInclude>
+    <ClInclude Include="game\CRadarManager.h">
+      <Filter>Game\World</Filter>
+    </ClInclude>
+    <ClInclude Include="game\CPickupManager.h">
+      <Filter>Game\World</Filter>
+    </ClInclude>
+    <ClInclude Include="game\CMissionManager.h">
+      <Filter>Game\Logic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +171,15 @@
     </Filter>
     <Filter Include="Vendors\inih">
       <UniqueIdentifier>{02b895c9-e7d4-4bfa-8568-0e4470089bd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Entities">
+      <UniqueIdentifier>{e6f2e9a7-ea9f-4a16-bd50-31a77b4f53a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Logic">
+      <UniqueIdentifier>{a40342be-d91d-4f04-826f-f6d2f6598c58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\World">
+      <UniqueIdentifier>{91d4c235-cd9f-45e2-8fee-5ab1627534da}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

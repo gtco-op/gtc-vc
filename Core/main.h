@@ -3,10 +3,13 @@
 
 #define STREAM_ZONE 150
 
+
+
 //================ MAIN ================
 #include <iostream>
 #include <Windows.h>
 #include <d3d9.h>
+
 
 //================ VENDORS ================
 //---------------- HOOK LIBRARY ----------------
@@ -19,10 +22,18 @@ using namespace Hook;
 //---------------- INIH -----------------
 #include "vendor/inih/INIReader.h"
 
+//--------------- IMGUI -----------------
+#include "vendor/imgui/imgui.h"
+#include "vendor/imgui/imgui_impl_dx9.h"
+#include "vendor/imgui/imgui_impl_win32.h"
+
+
+
 //================ PLUGINSDK ================
 #include "plugin.h"
 using namespace plugin;
 
+#include "rwd3d9.h"
 
 #include "CMenuManager.h"
 #include "CVector.h"
@@ -58,7 +69,8 @@ using namespace plugin;
 #include "extensions/ScriptCommands.h"
 #include "CFont.h"
 #include "CGame.h"
-
+#include "C3dMarker.h"
+#include "C3dMarkers.h"
 
 //================ GAME ================
 
@@ -171,9 +183,11 @@ typedef struct _CAMERA_AIM
 #include "CHostNetworking.h"
 #include "CCompanionNetworking.h"
 
+
 //externals
 extern CHostNetworking *gHost;
 extern CCompanionNetworking *gCompanion;
+
 
 //enums
 enum eEntityType {

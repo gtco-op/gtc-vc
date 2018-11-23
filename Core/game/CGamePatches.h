@@ -4,7 +4,7 @@ class CGamePatches
 {
 public:
 	CGamePatches();
-
+   
 	void DestructingMenu();
 	void RunningScriptHook();
 	void GameLogicPatches();
@@ -12,4 +12,5 @@ public:
 	void CrashfixHooks();
 	void PopulationPatches();
 	void LimitPatches();
+
 };
