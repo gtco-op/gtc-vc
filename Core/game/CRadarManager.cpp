@@ -50,5 +50,6 @@ int CRadarManager::AddBlip(CVector pos, int scale, int sprite, int color) {
 	plugin::Call<0x4C3840, int, int>(CoordBlip, scale);
 	plugin::Call<0x4C3780, int, int>(CoordBlip, sprite);
 	plugin::Call<0x4C3930, int, unsigned int>(CoordBlip, color);
+	return CoordBlip;
 }
 

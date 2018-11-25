@@ -11,7 +11,7 @@ public:
     void Shutdown();
     void DrawConnectMenu();
     bool m_bInitialized = false;
-    static char* IPBuf;
-    static int* PortBuf;
+    char* IPBuf;
+    int* PortBuf;
 };
 
