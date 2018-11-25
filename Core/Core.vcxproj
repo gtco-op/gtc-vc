@@ -46,16 +46,16 @@
     <IntDir>$(ProjectDir).obj\GTAVC\Release\</IntDir>
     <TargetName>Core</TargetName>
     <TargetExt>.asi</TargetExt>
-    <IncludePath>$(IncludePath);$(ProjectDir)\game;$(ProjectDir);</IncludePath>
-    <LibraryPath>$(LibraryPath);</LibraryPath>
+    <IncludePath>$(RWD3D9_DIR);$(IncludePath);$(ProjectDir)\game;$(ProjectDir);</IncludePath>
+    <LibraryPath>$(RWD3D9_DIR);$(LibraryPath);</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GTAVC zDebug|Win32'">
     <OutDir>$(GTA_VC_DIR)\</OutDir>
     <IntDir>$(ProjectDir).obj\GTAVC\Debug\</IntDir>
     <TargetName>Core_d</TargetName>
     <TargetExt>.asi</TargetExt>
-    <IncludePath>$(IncludePath);$(DIRECTX9_SDK_DIR)\Include\</IncludePath>
-    <LibraryPath>$(LibraryPath);$(DIRECTX9_SDK_DIR)\Lib\x86\</LibraryPath>
+    <IncludePath>$(RWD3D9_DIR);$(IncludePath);$(DIRECTX9_SDK_DIR)\Include\;$(ProjectDir)\game;$(ProjectDir);</IncludePath>
+    <LibraryPath>$(RWD3D9_DIR);$(LibraryPath);$(DIRECTX9_SDK_DIR)\Lib\x86\;</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='GTAVC Release|Win32'">
     <ClCompile>
@@ -96,7 +96,7 @@
       <GenerateDebugInformation>Debug</GenerateDebugInformation>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <AdditionalLibraryDirectories>$(PLUGIN_SDK_DIR)\output\lib\;$(RWD3D9_DIR)\libs\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>plugin_vc_d.lib;d3d9.lib;d3dx9.lib;rwd3d9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>detours.lib;winmm.lib;ws2_32.lib;plugin_vc_d.lib;d3d9.lib;d3dx9.lib;rwd3d9.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
