@@ -1,17 +1,17 @@
 #pragma once
-#include "main.h"
 
 class ImGuiImplementation
 {
 public:
-
-
-    void Initialize(HWND hwnd, IDirect3DDevice9* device);
+    void Initialize();
     void Draw();
     void Shutdown();
-    void DrawConnectMenu();
+    void DrawMenu();
+
     bool m_bInitialized = false;
-    char* IPBuf;
-    int* PortBuf;
+	bool m_bDrawConnectMenu = false;
+
+	static char serverHostname[64];
+	static int serverPort;
 };
 

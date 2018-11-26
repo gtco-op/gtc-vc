@@ -65,7 +65,7 @@ CPlayerPedManager::CPlayerPedManager()
 		this->playerSlots[i] = false;
 	}
 	this->playerSlots[0] = true; //0 is always local player
-	//this->playerSlots[1] = true; //1 is always the second player, coop leftover 
+	//this->playerSlots[1] = true; //1 is always the second player, coop leftover
 
 	original_CPlayerPed__ProcessControl = (char(__thiscall*)(CPlayerPed*))DetourFunction((PBYTE)0x537270, (PBYTE)CPlayerPed__ProcessControl_Hook);
 }

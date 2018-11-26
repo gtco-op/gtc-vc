@@ -14,12 +14,9 @@
 #include "vendor/librg/librg.h"
 #include "main.h"
 
-
-
 HANDLE thrd;
 librg_ctx_t cli_ctx = { 0 };
 static const char* m_ip; static int m_port;
-
 
 #pragma region Events
 void  cli_on_connection_request(librg_event_t *event) {
@@ -49,7 +46,6 @@ void CompanionThread() {
     librg_init(&cli_ctx);
     printf("[CCompanionNetworking] Initalized \n");
     
-    
     //Registering Events
     librg_event_add(&cli_ctx, LIBRG_CONNECTION_REQUEST, cli_on_connection_request);
     librg_event_add(&cli_ctx, LIBRG_CONNECTION_ACCEPT, cli_on_connection_accept);
@@ -69,10 +65,8 @@ void CompanionThread() {
         zpl_sleep_ms(1);
     }
 
-
     librg_network_stop(&cli_ctx);
     librg_free(&cli_ctx);
-
 }
 void CCompanionNetworking::JoinGame(const char* IP, int port)
 {
@@ -82,7 +76,6 @@ void CCompanionNetworking::JoinGame(const char* IP, int port)
 
     thrd = CreateThread(0, 0, (LPTHREAD_START_ROUTINE)&CompanionThread, 0,0,0);
 }
-
 
 CCompanionNetworking::~CCompanionNetworking()
 {   

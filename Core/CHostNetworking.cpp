@@ -26,7 +26,6 @@ CPed * comp_ped = nullptr;
 
 static int m_port;
 
-
 #pragma region Events
     void  on_connection_request(librg_event_t *event) {
         printf("[CHostNetowrking] Companion is Requesting to connect IP:  %s\n", (char*)event->peer->address.host);
@@ -60,7 +59,7 @@ static int m_port;
         ctx.max_connections = 1;
 
         librg_init(&ctx);
-        printf("[CHostNetworking] Server Initalized");
+        printf("[CHostNetworking] Server Initialized\n");
 
         //Registering Events
         librg_event_add(&ctx, LIBRG_CONNECTION_REQUEST, on_connection_request);
@@ -74,16 +73,12 @@ static int m_port;
         librg_network_start(&ctx, address);
         printf("[CHostNetworking] Server started at %d\n", address.port);
 
-
         while (server_running) {
             if (companion != nullptr) {
                 PlayerSyncData *plr = (PlayerSyncData*)companion->user_data;
                 printf("Reciving Companion Position: X: %.f Y: %.f Z: %.f", plr->Position.x, plr->Position.y, plr->Position.z);
-
             }
-
         }
-
     }
 
 

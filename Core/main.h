@@ -1,9 +1,7 @@
 #pragma once
 
-
-#define STREAM_ZONE 150
-
-
+#define GTC_DEFAULT_PORT	7777
+#define GTC_STREAM_ZONE		150
 
 //================ MAIN ================
 #include <iostream>
@@ -26,8 +24,6 @@ using namespace Hook;
 #include "vendor/imgui/imgui.h"
 #include "vendor/imgui/imgui_impl_dx9.h"
 #include "vendor/imgui/imgui_impl_win32.h"
-
-
 
 //================ PLUGINSDK ================
 #include "plugin.h"
@@ -75,6 +71,8 @@ using namespace plugin;
 //================ GAME ================
 
 //sandbox
+#include "ImGuiImplementation.h"
+
 #include "CModelManager.h"
 #include "CVehicleManager.h"
 #include "CPedManager.h"
@@ -85,7 +83,6 @@ using namespace plugin;
 #include "CMissionManager.h"
 #include "CGamePatches.h"
 
-
 //externals
 extern CModelManager		*gModelManager;
 extern CVehicleManager		*gVehicleManager;
@@ -95,8 +92,7 @@ extern CRadarManager		*gRadarManager;
 extern CPickupManager		*gPickupManager;
 extern CMissionManager      *gMissionManager;
 extern CGamePatches         *gGamePatches;
-
-
+extern ImGuiImplementation  *gImGui;
 
 //enums
 enum PLUGIN_API eCamMode : unsigned short {
@@ -188,7 +184,6 @@ typedef struct _CAMERA_AIM
 extern CHostNetworking *gHost;
 extern CCompanionNetworking *gCompanion;
 
-
 //enums
 enum eEntityType {
     PLAYER,
@@ -228,3 +223,9 @@ struct VehicleSyncData {
     unsigned int Model;
 
 };
+
+#ifdef GTC_DEBUG
+#	define GTC_LOG(x) printf(x)
+#else
+#	define GTC_LOG(x)
+#endif

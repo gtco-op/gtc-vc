@@ -1,13 +1,14 @@
 /*
-Grand Theft CO-OP: Vice City
------------------------------
-FILE: CGamePatches.cpp
-DESCRIPTION: Patches the game with important patches.
-AUTHOR(S): Vektor
-Zurix
+	Grand Theft CO-OP: Vice City
+	-----------------------------
+	FILE: CGamePatches.cpp
+	DESCRIPTION: Patches the game with important patches.
+	AUTHOR(S):	Vektor
+				LemonHaze
+				Zurix
 
-License: GPL v2
-Copyrights (c) 2017-2018 GTC Team
+	License: GPL v2
+	Copyrights (c) 2017-2018 GTC Team
 */
 #include "main.h"
 #include "CGamePatches.h"
@@ -16,8 +17,6 @@ Copyrights (c) 2017-2018 GTC Team
 
 CGamePatches::CGamePatches()
 {
-
-    printf("[CGAMEPATCHES] Processing...");
     injector::WriteMemory(0x9B5F08,8);
     this->DestructingMenu();
     this->PopulationPatches();
@@ -29,18 +28,8 @@ CGamePatches::CGamePatches()
 
     Events::gameProcessEvent += []
     {
-        static bool bPressed = false;
-        if (KeyPressed(VK_ESCAPE) && bPressed == false)
-        {
-            bPressed = true;
-            plugin::Call<0x602EE0, int, void*>(30, nullptr);	// RsEventHandler
-        }
     };
-    printf("[CGAMEPATCHES] Main Patches Done");
 }
-
-
-
 
 void CGamePatches::DestructingMenu()
 {
@@ -60,8 +49,6 @@ void CGamePatches::DestructingMenu()
     MakeRet(0x4A4FD0);
     
 }
-
-
 static bool scriptProcessed = false;
 void Hook_CRunningScript__Process()
 {
@@ -164,19 +151,12 @@ void CGamePatches::WantedPatches()
     injector::MakeRET(0x4D1FA0);
 }
 
-
-
-
-
 void CGamePatches::CrashfixHooks()
 {
     // Disable CRubbish::Init() (crashfix)
     MakeRet(0x568550);
 
 }
-
-
-
 
 void CGamePatches::PopulationPatches()
 {
