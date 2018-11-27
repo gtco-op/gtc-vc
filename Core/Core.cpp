@@ -31,6 +31,18 @@ ImGuiImplementation  *gImGui			= nullptr;
 class Core {
 public:
     Core() {
+
+#ifdef GTC_DEBUG
+		// Disable re-initialization of DirectInput mouse device by the game
+		MakeNop(0x49908B, 5);
+		MakeNop(0x498F92, 5);
+		MakeNop(0x499014, 5);
+
+		MakeNop(0x49908B + 0x7, 5);
+		MakeNop(0x498F92 + 0x7, 5);
+		MakeNop(0x499014 + 0x7, 5);
+#endif
+
 		gImGui				= new ImGuiImplementation();
 
 		gGamePatches		= new CGamePatches();

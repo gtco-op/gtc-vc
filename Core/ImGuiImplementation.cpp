@@ -5,8 +5,8 @@ int ImGuiImplementation::serverPort;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
-WNDPROC orig_wndproc;
 
+WNDPROC orig_wndproc;
 bool wndprocHooked = false;
 
 bool IsWindowActive()
@@ -107,18 +107,14 @@ void DisableMouseInput()
 }
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-	if (gImGui->m_bInitialized && gImGui->m_bDrawConnectMenu)
-	{
-		DisableMouseInput();
-
-		((IDirect3DDevice9 *)RwD3D9GetCurrentD3DDevice())->ShowCursor(true);
+	if (gImGui->m_bDrawConnectMenu && gImGui->m_bInitialized) {
+		DisableMouseInput(); 
+		((IDirect3DDevice9 *)RwD3D9GetCurrentD3DDevice())->ShowCursor(TRUE);
 		ImGui::GetIO().MouseDrawCursor = true;
 	}
-	else if(gImGui->m_bInitialized && !gImGui->m_bDrawConnectMenu)
-	{
-		EnableMouseInput();
-
-		((IDirect3DDevice9 *)RwD3D9GetCurrentD3DDevice())->ShowCursor(false);
+	else if(gImGui->m_bInitialized) {
+		EnableMouseInput(); 
+		((IDirect3DDevice9 *)RwD3D9GetCurrentD3DDevice())->ShowCursor(FALSE);
 		ImGui::GetIO().MouseDrawCursor = false;
 	}
 
@@ -149,9 +145,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_KEYDOWN:
 		int vkey = (int)wParam;
-
-		if (gImGui->m_bDrawConnectMenu && (ImGui::GetIO().WantCaptureMouse || ImGui::GetIO().WantCaptureKeyboard))
-			return ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam);
 
 		if (vkey == VK_ESCAPE)		{
 			plugin::Call<0x602EE0, int, void*>(30, nullptr); // RsEventHandler
