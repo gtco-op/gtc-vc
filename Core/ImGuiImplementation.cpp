@@ -124,8 +124,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 	switch (msg)
 	{
+	case WM_MOUSEMOVE:
+		POINT ul, lr;
+		RECT rect;
+		GetClientRect(hWnd, &rect);
+
+		ul.x = rect.left;
+		ul.y = rect.top;
+		lr.x = rect.right;
+		lr.y = rect.bottom;
+
+		MapWindowPoints(hWnd, nullptr, &ul, 1);
+		MapWindowPoints(hWnd, nullptr, &lr, 1);
+
+		rect.left = ul.x;
+		rect.top = ul.y;
+		rect.right = lr.x;
+		rect.bottom = lr.y;
+
+		if (IsWindowActive())
+			ClipCursor(&rect);
+		break;
+	case WM_MOUSEHOVER:
+		break;
 	case WM_KEYDOWN:
 		int vkey = (int)wParam;
+
+		if (gImGui->m_bDrawConnectMenu && (ImGui::GetIO().WantCaptureMouse || ImGui::GetIO().WantCaptureKeyboard))
+			return ImGui_ImplWin32_WndProcHandler(hWnd, msg, wParam, lParam);
+
 		if (vkey == VK_ESCAPE)		{
 			plugin::Call<0x602EE0, int, void*>(30, nullptr); // RsEventHandler
 			return 0;

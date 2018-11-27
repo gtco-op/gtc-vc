@@ -18,6 +18,7 @@
 CGamePatches::CGamePatches()
 {
     injector::WriteMemory(0x9B5F08,8);
+
     this->DestructingMenu();
     this->PopulationPatches();
     this->RunningScriptHook();
@@ -25,10 +26,6 @@ CGamePatches::CGamePatches()
     this->WantedPatches();
     this->CrashfixHooks();
     this->LimitPatches();
-
-    Events::gameProcessEvent += []
-    {
-    };
 }
 
 void CGamePatches::DestructingMenu()
